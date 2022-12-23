@@ -16,7 +16,7 @@ app.use('/',pRouter);
 
 
 
-const server = app.listen(1234,(err)=>{
+const server = app.listen(process.env.PORT || 1234,(err)=>{
     if(err){
         console.log("Server Crash");
     }
