@@ -5,7 +5,7 @@ const useRouter=require('./source/routes/unproutes.js')
 const pRouter=require('./source/routes/proutes')
 
 app.use(cors({
-    origin:'https://hwmdeploy.netlify.app/'
+    origin:'https://hwmdeploy.netlify.app'
 }))
 app.use(express.urlencoded());
 app.use(express.json()); 

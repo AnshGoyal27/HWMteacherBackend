@@ -15,9 +15,17 @@ router.post("/login",(req,res)=>{
         if(obj.type==='teacher'){
             if(obj.password===obj.userName){
                 const token=generateLoginToken(obj.userName,obj.password);
+                res.header("Access-Control-Allow-Origin","https://hwmdeploy.netlify.app");
+                res.header('Access-Control-Allow-Credentials', 'true')
+                res.header("Access-Control-Allow-Methods","GET,POST");
+                res.header("Access-Control-Allow-Headers","Origin,Content-Type,Authorization");
                 res.status(202).json({message:token});
             }
             else{
+                res.header("Access-Control-Allow-Origin","https://hwmdeploy.netlify.app");
+                res.header('Access-Control-Allow-Credentials', 'true')
+                res.header("Access-Control-Allow-Methods","GET,POST");
+                res.header("Access-Control-Allow-Headers","Origin,Content-Type,Authorization");
                 res.sendStatus(401).json({message:'UnAuthorized User'});
             }
         }
@@ -32,10 +40,18 @@ router.post("/verify",(req,res)=>{
     console.log('Token Rec ', tokenId);
      const isVerified = decodeLoginToken(tokenId); 
      if(isVerified){
+        res.header("Access-Control-Allow-Origin","https://hwmdeploy.netlify.app");
+        res.header('Access-Control-Allow-Credentials', 'true')
+        res.header("Access-Control-Allow-Methods","GET,POST");
+        res.header("Access-Control-Allow-Headers","Origin,Content-Type,Authorization");
         res.status(202).json({message:'Authorized'});
         
      }
      else{
+        res.header("Access-Control-Allow-Origin","https://hwmdeploy.netlify.app");
+        res.header('Access-Control-Allow-Credentials', 'true')
+        res.header("Access-Control-Allow-Methods","GET,POST");
+        res.header("Access-Control-Allow-Headers","Origin,Content-Type,Authorization");
         res.status(401).json({message:'UnAuthorized User'});
      }
 })
